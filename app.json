@@ -12,6 +12,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "zh.kali",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -44,6 +45,15 @@
         "projectId": "08b85d3a-2520-4c3f-a419-f79e7f394a73"
       }
     },
-    "owner": "v4cod"
+    "owner": "v4cod",
+    "sdkVersion": "53.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "androidStatusBar": {
+      "backgroundColor": "#ffffff"
+    }
   }
 }
