@@ -25,15 +25,12 @@ jobs:
       - name: 🚀 Install EAS CLI
         run: npm install -g eas-cli
 
-      - name: 🛠️ EAS Login
-        run: eas login --token ${{ secrets.EXPO_TOKEN }}
-
       - name: ⚙️ EAS Build (Android APK)
-        run: eas build \
-          --platform android \
-          --profile preview \
-          --non-interactive \
-          --token ${{ secrets.EXPO_TOKEN }}
+        run: |
+          eas build --platform android \
+                    --profile preview \
+                    --non-interactive \
+                    --token ${{ secrets.EXPO_TOKEN }}
 
       - name: 📥 Download build artifact
         run: |
