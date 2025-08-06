@@ -1,4 +1,4 @@
-name: 📱 Build Android App
+ame: 📱 Build Android App
 
 on:
   push:
@@ -26,7 +26,10 @@ jobs:
         run: npm install -g eas-cli
 
       - name: 🛠️ EAS Login
-        run: eas whoami || eas login --non-interactive --username ${{ secrets.EXPO_CLI_USERNAME }} --password ${{ secrets.EXPO_CLI_PASSWORD }}
+        run: |
+          eas whoami || eas login --non-interactive \
+            --username ${{ secrets.EXPO_CLI_USERNAME }} \
+            --password ${{ secrets.EXPO_CLI_PASSWORD }}
 
       - name: ⚙️ EAS Build (Android APK)
         run: eas build --platform android --profile preview --non-interactive
@@ -42,7 +45,7 @@ jobs:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📤 Upload Artifact (APK)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # ✅ UPDATED from v3 to v4
         with:
           name: vibelycoder-apk
           path: ./build/app.apk
