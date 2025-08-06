@@ -26,23 +26,22 @@ jobs:
         run: npm install -g eas-cli
 
       - name: 🛠️ EAS Login
-        env:
-          EXPO_CLI_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
-          EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
-        run: eas whoami || eas login --non-interactive --username $EXPO_CLI_USERNAME --password $EXPO_CLI_PASSWORD
+        run: eas login --token ${{ secrets.EXPO_TOKEN }}
 
       - name: ⚙️ EAS Build (Android APK)
-        env:
-          EAS_PROJECT_ID: ${{ secrets.EAS_PROJECT_ID }}
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: eas build --platform android --profile preview --non-interactive
+        run: eas build \
+          --platform android \
+          --profile preview \
+          --non-interactive \
+          --token ${{ secrets.EXPO_TOKEN }}
 
       - name: 📥 Download build artifact
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
           mkdir -p build
-          eas build:download --platform android --path ./build/app.apk
+          eas build:download \
+            --platform android \
+            --path ./build/app.apk \
+            --token ${{ secrets.EXPO_TOKEN }}
 
       - name: 📤 Upload Artifact (APK)
         uses: actions/upload-artifact@v4
