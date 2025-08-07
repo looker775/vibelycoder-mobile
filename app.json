@@ -1,4 +1,64 @@
 {
+<<<<<<< HEAD
   "name": "VibelyCoderApp",
   "displayName": "VibelyCoderApp"
+=======
+  "expo": {
+    "name": "vibelycoder-mobile",
+    "slug": "vibelycoder-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "vibelycodermobile",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "zh.kali",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "08b85d3a-2520-4c3f-a419-f79e7f394a73"
+      }
+    },
+    "owner": "v4cod",
+    "sdkVersion": "53.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "androidStatusBar": {
+      "backgroundColor": "#ffffff"
+    }
+  }
+>>>>>>> d3789ba9d656bf8fbcaeb1db89e3ef8928847952
 }

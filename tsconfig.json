@@ -1,3 +1,21 @@
 {
+<<<<<<< HEAD
   "extends": "@react-native/typescript-config"
+=======
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
+>>>>>>> d3789ba9d656bf8fbcaeb1db89e3ef8928847952
 }

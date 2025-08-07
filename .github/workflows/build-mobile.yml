@@ -1,0 +1,44 @@
+name: 📱 Build Android App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-android:
+    name: Build APK with EAS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🚀 Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: ⚙️ EAS Build (Android APK)
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas build --platform android --profile preview --non-interactive
+
+      - name: 📥 Download build artifact
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          mkdir -p build
+          eas build:download --platform android --path ./build/app.apk
+
+      - name: 📤 Upload Artifact (APK)
+        uses: actions/upload-artifact@v4
+        with:
+          name: vibelycoder-apk
+          path: ./build/app.apk
